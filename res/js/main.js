@@ -12,7 +12,6 @@ let clickIncreasePrice = 100;
 let autoclickerIncrease = 0;
 let autoclickerPrice = 200;
 
-let casesIncrease = 1;
 let casesUpgradeIncrease = 0;
 let casesUpgradePrice = 400;
 
@@ -53,5 +52,28 @@ casesUpgrade.onclick = () => {
         counter.innerHTML = cookies;
         casesUpgradePrice += 200;
         casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars`
+        if (casesUpgradeIncrease == 0) {
+            setInterval(() => {
+                cookies += casesUpgradeIncrease;
+                counter.innerHTML = cookies;
+            }, 1000);
+        }
+        casesUpgradeIncrease++;
+    }
+}
+
+casesUpgrade.onclick = () => {
+    if (cookies >= casesUpgradePrice) {
+        cookies -= casesUpgradePrice;
+        counter.innerHTML = cookies;
+        casesUpgradePrice += 200;
+        casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars`
+        if (casesUpgradeIncrease == 0) {
+            setInterval(() => {
+                cookies += casesUpgradeIncrease;
+                counter.innerHTML = cookies;
+            }, 1000);
+        }
+        casesUpgradeIncrease++;
     }
 }
