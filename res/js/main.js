@@ -48,5 +48,10 @@ autoclickerUpgrade.onclick = () => {
 }
 
 casesUpgrade.onclick = () => {
-    
+    if (cookies >= casesUpgradePrice) {
+        cookies -= casesUpgradePrice;
+        counter.innerHTML = cookies;
+        casesUpgradePrice += 200;
+        casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars`
+    }
 }
