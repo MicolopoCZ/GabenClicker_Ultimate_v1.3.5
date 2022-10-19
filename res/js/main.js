@@ -2,6 +2,7 @@ const cookie = document.getElementById("cookie");
 const counter = document.getElementById("counter");
 const clickUpgrade = document.getElementById("clickUpgrade")
 const autoclickerUpgrade = document.getElementById("autoclickerUpgrade")
+const cases = document.getElementById("casesUpgrade")
 
 let cookies = 0;
 
@@ -10,6 +11,10 @@ let clickIncreasePrice = 100;
 
 let autoclickerIncrease = 0;
 let autoclickerPrice = 200;
+
+let casesIncrease = 1;
+let casesUpgradeIncrease = 0;
+let casesUpgradePrice = 400;
 
 cookie.onclick = () => {
     cookies += clickIncrease;
@@ -40,4 +45,8 @@ autoclickerUpgrade.onclick = () => {
         }
         autoclickerIncrease++;
     }
+}
+
+casesUpgrade.onclick = () => {
+    
 }
