@@ -1,0 +1,20 @@
+body {
+    background: url("../img/background.jpg");
+    background-size: cover;
+  }
+#cookie {
+    text-align: center;
+    max-width: 180px;
+    display: block;
+}
+#counter {
+    text-align: center;
+    color: green;
+    font-size: 80px;
+}
+#clickUpgradeButton {
+    text-align: center;
+}
+#autoCLickerButton {
+    text-align: center;
+}
