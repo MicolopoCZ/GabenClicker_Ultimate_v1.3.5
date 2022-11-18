@@ -2,14 +2,23 @@ body {
     background: url("../img/background.jpg");
     background-size: cover;
   }
+button {
+    background-color: rgba(0, 0, 0, 0.521);
+    color: rgb(6, 221, 6);
+    font-size: 20px;
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+}
 #cookie {
     text-align: center;
     display: block;
+    font-size: 60px;
 }
 #counter {
     text-align: center;
     color: green;
-    font-size: 80px;
+    font-size: 90px;
 }
 #clickUpgradeButton {
     text-align: center;
@@ -18,5 +27,52 @@ body {
     text-align: center;
 }
 #casesUpgrade {
+    text-align: center;
+}
+#miniGames {
+    position: absolute;
+    text-align: center;
+    width: 23%;
+    top: 5%;
+    bottom: 5%;
+    left: 2%;
+    right: 75%;
+    background-color: rgba(70, 67, 67, 0.76);
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+}
+#mainDiv {
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    top: 5%;
+    bottom: 25%;
+    left: 25%;
+    right: 25%;
+}
+#counterDiv {
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    top: 65%;
+    bottom: 5%;
+    left: 25%;
+    right: 25%;
+}
+#upgrades {
+    position: absolute;
+    text-align: center;
+    width: 23%;
+    top: 5%;
+    bottom: 5%;
+    left: 75%;
+    right: 2%;
+    background-color: rgba(70, 67, 67, 0.76);
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+}
+#csgo {
     text-align: center;
 }
