@@ -1,0 +1,14 @@
+* {
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(6, 221, 6);
+}
+
+body {
+    background: url("../img/background2.jpg");
+    background-size: cover;
+  }
+  

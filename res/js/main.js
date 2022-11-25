@@ -1,12 +1,14 @@
-const cookie = document.getElementById("cookie");
+const money = document.getElementById("money");
 const counter = document.getElementById("counter");
 const clickUpgrade = document.getElementById("clickUpgrade")
 const autoclickerUpgrade = document.getElementById("autoclickerUpgrade")
 const casesUpgrade = document.getElementById("casesUpgrade")
+const collectionUpgrade = document.getElementById("collectionUpgrade")
 
-const csgoBuy = document.getElementById("csgoBuy")
+const play = document.getElementById("musicButton")
+const mute = document.getElementById("muteButton")
 
-let cookies = 0;
+let dollars = 0;
 
 let clickIncrease = 1;
 let clickIncreasePrice = 100;
@@ -16,45 +18,56 @@ let autoclickerIncrease = 0;
 let autoclickerPrice = 200;
 let autoclickerNumber = 1;
 
-
 let casesUpgradeIncrease = 0;
 let casesUpgradeModifier = 2;
 let casesUpgradePrice = 400;
 let casesUpgradeNumber = 1;
 
-let csgoBuyPrice = 1000;
+let collectionUpgradeIncrease = 0;
+let collectionUpgradeModifier = 8;
+let collectionUpgradePrice = 1000;
+let collectionUpgradeNumber = 1;
 
-cookie.onclick = () => {
-    cookies += clickIncrease;
-    counter.innerHTML = cookies;
+money.onclick = () => {
+    dollars += clickIncrease;
+    counter.innerHTML = dollars;
 }
-cookie.onmousedown = () => {
-    cookie.style.fontSize = "30px";
+money.onmousedown = () => {
+    money.style.fontSize = "30px";
 }
-cookie.onmouseup = () => {
-    cookie.style.fontSize = "60px";
+money.onmouseup = () => {
+    money.style.fontSize = "60px";
+}
+
+mute.onclick = () => {
+    mute.style.display = "none";
+    play.style.display = "block";
+}
+play.onclick = () => {
+    play.style.display = "none";
+    mute.style.display = "block";
 }
 
 clickUpgrade.onclick = () => {
-    if (cookies >= clickIncreasePrice) {
-        cookies -= clickIncreasePrice;
+    if (dollars >= clickIncreasePrice) {
+        dollars -= clickIncreasePrice;
         clickIncreasePrice += 100;
         clickUpgrade.innerHTML = `Buy Click Upgrade: ${clickIncreasePrice} dollars <br> (${clickIncreaseNumber})`
-        counter.innerHTML = cookies;
+        counter.innerHTML = dollars;
         clickIncrease++;
         clickIncreaseNumber ++;
     }
 }
 autoclickerUpgrade.onclick = () => {
-    if (cookies >= autoclickerPrice) {
-        cookies -= autoclickerPrice;
-        counter.innerHTML = cookies;
-        autoclickerPrice += 100;
+    if (dollars >= autoclickerPrice) {
+        dollars -= autoclickerPrice;
+        counter.innerHTML = dollars;
+        autoclickerPrice += 200;
         autoclickerUpgrade.innerHTML = `Buy Autoclicker: ${autoclickerPrice} dollars <br> (${autoclickerNumber})`
         if (autoclickerIncrease == 0) {
             setInterval(() => {
-                cookies += autoclickerIncrease;
-                counter.innerHTML = cookies;
+                dollars += autoclickerIncrease;
+                counter.innerHTML = dollars;
             }, 1000);
         }
         autoclickerIncrease++;
@@ -63,26 +76,35 @@ autoclickerUpgrade.onclick = () => {
 }
 
 casesUpgrade.onclick = () => {
-    if (cookies >= casesUpgradePrice) {
-        cookies -= casesUpgradePrice;
-        counter.innerHTML = cookies;
-        casesUpgradePrice += 200;
+    if (dollars >= casesUpgradePrice) {
+        dollars -= casesUpgradePrice;
+        counter.innerHTML = dollars;
+        casesUpgradePrice += 300;
         casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars <br> (${casesUpgradeNumber})`
         if (casesUpgradeIncrease == 0) {
             setInterval(() => {
-                cookies += casesUpgradeIncrease;
-                counter.innerHTML = cookies;
-            }, 1000);
+                dollars += casesUpgradeIncrease;
+                counter.innerHTML = dollars;
+            }, 800);
         }
         casesUpgradeIncrease += casesUpgradeModifier;
         casesUpgradeNumber ++;
     }
 }
 
-csgoBuy.onclick = () => {
-    if (cookies >= csgoBuyPrice) {
-        cookies -= csgoBuyPrice;
-        csgoBuy.innerHTML = `Cancer Strike : Gamer Offence`
-        counter.innerHTML = cookies;
+collectionUpgrade.onclick = () => {
+    if (dollars >= collectionUpgradePrice) {
+        dollars -= collectionUpgradePrice;
+        counter.innerHTML = dollars;
+        collectionUpgradePrice += 500;
+        collectionUpgrade.innerHTML = `Buy Cases: ${collectionUpgradePrice} dollars <br> (${collectionUpgradeNumber})`
+        if (collectionUpgradeIncrease == 0) {
+            setInterval(() => {
+                dollars += collectionUpgradeIncrease;
+                counter.innerHTML = dollars;
+            }, 500);
+        }
+        collectionUpgradeIncrease += collectionUpgradeModifier;
+        collectionUpgradeNumber ++;
     }
 }

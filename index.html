@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./res/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./res/css/stylemain.css">
+    <title>Main</title>
 </head>
 <body>
     <div id="miniGames">
         <p id="csgo">
-            <button id="csgoBuy">
-                Cancer Strike : Gamer Offence
-                <br>
-                Price: 1000 dollars
+            <button id="csgoButton">
+                <a href="./csgo.html">Cancer Strike : Gamer Offence</a>
+            </button>
+        </p>
+        <p id="tf">
+            <button id="tfButton">
+                <a href="./tf.html">tank fortress</a>
             </button>
         </p>
     </div>
 
 
     <div id="mainDiv">
-        <p id="cookie">
+        <p id="money">
             <img src="dollar.png" alt="centered image">
         </p>
     </div>
@@ -39,10 +42,25 @@
             <button id="autoclickerUpgrade">Buy Autoclicker: 200 dollars<br>(0)</button>
         </p>
 
-        <p id="casesUpgrade">
+        <p id="casesUpgradeButton">
             <button id="casesUpgrade">Buy Cases: 400 dollars<br>(0)</button>
-        </p>        
+        </p>
+
+        <p id="collectionUpgradeButton">
+            <button id="collectionUpgrade">Buy Collections: 1000 dollars<br>(0)</button>
+        </p>
     </div>
+
+    <p id="musicButton">
+        <img src="./res/img/sound.png" alt="centered image">
+        <audio controls autoplay>
+            <source src="./res/sounds/theme.mp3" type="audio/mpeg">
+        </audio>
+    </p>
+    <p id="muteButton">
+        <img src="./res/img/mute.png" alt="centered image">
+    </p>
+
     <script src="./res/js/main.js"></script>
 </body>
 </html>
