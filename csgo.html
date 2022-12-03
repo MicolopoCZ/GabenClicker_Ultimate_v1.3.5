@@ -8,7 +8,27 @@
     <title>Minigame1</title>
 </head>
 <body>
-
-    <script src="./res/js/main.js"></script>
+    <div id="player">
+        <img src="./res/img/t.png" alt="">
+    </div>
+    <div id="playerAttack">
+        <img src="./res/img/t_gun.png" alt="">
+    </div>
+    <div id="enemy">
+        <img src="./res/img/ct.png" alt="">
+    </div>
+    <div id="enemyAttack">
+        <img src="./res/img/ct_gun.png" alt="">
+    </div>
+    <button id="heal">Heal</button>
+    <div id="playerHp">20</div>
+    <div id="enemyHp">20</div>
+    <p id="info">Info: </p>
+    <p id="attack">
+        <img src="./res/img/fire_button.png" alt="centered image">
+    </p>
+    <audio src="./res/sounds/kalasSFX.m4a" id="fireSFX"></audio>
+    <audio src="./res/sounds/pnineSFX.m4a" id="enemyfireSFX"></audio>
+    <script src="./res/js/csgo.js"></script>
 </body>
 </html>

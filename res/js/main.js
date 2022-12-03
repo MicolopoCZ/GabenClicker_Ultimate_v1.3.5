@@ -97,7 +97,7 @@ collectionUpgrade.onclick = () => {
         dollars -= collectionUpgradePrice;
         counter.innerHTML = dollars;
         collectionUpgradePrice += 500;
-        collectionUpgrade.innerHTML = `Buy Cases: ${collectionUpgradePrice} dollars <br> (${collectionUpgradeNumber})`
+        collectionUpgrade.innerHTML = `Buy Collections: ${collectionUpgradePrice} dollars <br> (${collectionUpgradeNumber})`
         if (collectionUpgradeIncrease == 0) {
             setInterval(() => {
                 dollars += collectionUpgradeIncrease;
