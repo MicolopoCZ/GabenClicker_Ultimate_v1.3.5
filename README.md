@@ -1,2 +1,2 @@
 # GabenClicker_Ultimate
-[Spustit](https://micolopocz.github.io/FirstProject/)
+[Spustit](https://micolopocz.github.io/GabenClicker_Ultimate/)
