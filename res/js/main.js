@@ -8,36 +8,49 @@ const collectionUpgrade = document.getElementById("collectionUpgrade")
 const play = document.getElementById("musicButton")
 const mute = document.getElementById("muteButton")
 
-let dollars = 0;
+let dollars = localStorage.money;
 
 let clickIncrease = 1;
 let clickIncreasePrice = 100;
-let clickIncreaseNumber = 1;
+localStorage.clickNumber = 1;
 
 let autoclickerIncrease = 0;
 let autoclickerPrice = 200;
-let autoclickerNumber = 1;
+localStorage.autoNumber = 1;
 
 let casesUpgradeIncrease = 0;
 let casesUpgradeModifier = 2;
 let casesUpgradePrice = 400;
-let casesUpgradeNumber = 1;
+localStorage.casesNumber = 1;
 
 let collectionUpgradeIncrease = 0;
 let collectionUpgradeModifier = 8;
 let collectionUpgradePrice = 1000;
-let collectionUpgradeNumber = 1;
+localStorage.collectionNumber = 1;
+
+
+
 
 money.onclick = () => {
     dollars += clickIncrease;
-    counter.innerHTML = dollars;
+        if (localStorage.money) {
+          localStorage.money = Number(localStorage.money)+clickIncrease;
+        } else {
+          localStorage.money = 1;
+        }
+    counter.innerHTML = localStorage.money;
 }
+
 money.onmousedown = () => {
     money.style.fontSize = "30px";
 }
 money.onmouseup = () => {
     money.style.fontSize = "60px";
 }
+
+
+
+
 
 mute.onclick = () => {
     mute.style.display = "none";
@@ -48,63 +61,77 @@ play.onclick = () => {
     mute.style.display = "block";
 }
 
+
+
+
 clickUpgrade.onclick = () => {
-    if (dollars >= clickIncreasePrice) {
-        dollars -= clickIncreasePrice;
+    if (localStorage.money >= clickIncreasePrice) {
+        localStorage.money -= clickIncreasePrice;
         clickIncreasePrice += 100;
-        clickUpgrade.innerHTML = `Buy Click Upgrade: ${clickIncreasePrice} dollars <br> (${clickIncreaseNumber})`
-        counter.innerHTML = dollars;
+        clickUpgrade.innerHTML = `Buy Click Upgrade: ${clickIncreasePrice} dollars <br> (${localStorage.clickNumber})`
+        counter.innerHTML = localStorage.money;
         clickIncrease++;
-        clickIncreaseNumber ++;
+        localStorage.clickNumber ++;
     }
 }
 autoclickerUpgrade.onclick = () => {
-    if (dollars >= autoclickerPrice) {
-        dollars -= autoclickerPrice;
-        counter.innerHTML = dollars;
+    if (localStorage.money >= autoclickerPrice) {
+        localStorage.money -= autoclickerPrice;
+        counter.innerHTML = localStorage.money;
         autoclickerPrice += 200;
-        autoclickerUpgrade.innerHTML = `Buy Autoclicker: ${autoclickerPrice} dollars <br> (${autoclickerNumber})`
+        autoclickerUpgrade.innerHTML = `Buy Autoclicker: ${autoclickerPrice} dollars <br> (${localStorage.autoNumber})`
         if (autoclickerIncrease == 0) {
             setInterval(() => {
-                dollars += autoclickerIncrease;
-                counter.innerHTML = dollars;
+                localStorage.money += autoclickerIncrease;
+                counter.innerHTML = localStorage.money;
             }, 1000);
         }
         autoclickerIncrease++;
-        autoclickerNumber ++;
+        localStorage.autoNumber ++;
     }
 }
 
+
+
+
+
+
+
 casesUpgrade.onclick = () => {
-    if (dollars >= casesUpgradePrice) {
-        dollars -= casesUpgradePrice;
-        counter.innerHTML = dollars;
+    if (localStorage.money >= casesUpgradePrice) {
+        localStorage.money -= casesUpgradePrice;
+        counter.innerHTML = localStorage.money;
         casesUpgradePrice += 300;
-        casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars <br> (${casesUpgradeNumber})`
+        casesUpgrade.innerHTML = `Buy Cases: ${casesUpgradePrice} dollars <br> (${localStorage.casesNumber})`
         if (casesUpgradeIncrease == 0) {
             setInterval(() => {
-                dollars += casesUpgradeIncrease;
-                counter.innerHTML = dollars;
+                localStorage.money += casesUpgradeIncrease;
+                counter.innerHTML = localStorage.money;
             }, 800);
         }
         casesUpgradeIncrease += casesUpgradeModifier;
-        casesUpgradeNumber ++;
+        localStorage.casesNumber ++;
     }
 }
 
+
+
+
+
+
 collectionUpgrade.onclick = () => {
-    if (dollars >= collectionUpgradePrice) {
-        dollars -= collectionUpgradePrice;
-        counter.innerHTML = dollars;
+    if (localStorage.money >= collectionUpgradePrice) {
+        localStorage.money -= collectionUpgradePrice;
+        counter.innerHTML = localStorage.money;
         collectionUpgradePrice += 500;
-        collectionUpgrade.innerHTML = `Buy Collections: ${collectionUpgradePrice} dollars <br> (${collectionUpgradeNumber})`
+        collectionUpgrade.innerHTML = `Buy Collections: ${collectionUpgradePrice} dollars <br> (${localStorage.collectionNumber})`
         if (collectionUpgradeIncrease == 0) {
             setInterval(() => {
-                dollars += collectionUpgradeIncrease;
-                counter.innerHTML = dollars;
+                localStorage.money += collectionUpgradeIncrease;
+                counter.innerHTML = localStorage.money;
             }, 500);
         }
         collectionUpgradeIncrease += collectionUpgradeModifier;
-        collectionUpgradeNumber ++;
+        localStorage.collectionNumber ++;
     }
 }

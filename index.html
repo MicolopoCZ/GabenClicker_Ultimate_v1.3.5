@@ -29,25 +29,40 @@
     </div>
     
     <div id="counterDiv">
-        <p id="counter">0</p>
+        <p id="counter"><script>counter.innerHTML = localStorage.money;</script></p>
     </div>
 
 
     <div id="upgrades">
         <p id="clickUpgradeButton">
-            <button id="clickUpgrade">Buy Click Upgrade: 100 dollars<br>(0)</button>
+            <button id="clickUpgrade">
+                Buy Click Upgrade: 100 dollars
+                <br>
+                (0)
+            </button>
         </p>
 
         <p id="autoCLickerButton">
-            <button id="autoclickerUpgrade">Buy Autoclicker: 200 dollars<br>(0)</button>
+            <button id="autoclickerUpgrade">
+                Buy Autoclicker: 200 dollars
+                <br>
+                (0)
+            </button>
         </p>
 
         <p id="casesUpgradeButton">
-            <button id="casesUpgrade">Buy Cases: 400 dollars<br>(0)</button>
+            <button id="casesUpgrade">
+                Buy Cases: 400 dollars<br>
+                (0)
+            </button>
         </p>
 
         <p id="collectionUpgradeButton">
-            <button id="collectionUpgrade">Buy Collections: 1000 dollars<br>(0)</button>
+            <button id="collectionUpgrade">
+                Buy Collections: 1000 dollars
+                <br>
+                (0)
+            </button>
         </p>
     </div>
 
