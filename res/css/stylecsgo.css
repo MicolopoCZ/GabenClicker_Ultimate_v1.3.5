@@ -79,7 +79,17 @@ body {
 }
 
 #info {
-    position: absolute;
-    top: 250px;
-    font-size: 25px;
+    display: none;
+    position: relative;
+    width: 500px;
+    margin-top: 2em;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-radius: 15%;
+    border-color: rgba(0, 0, 0, 0.671);
+    background-color: rgba(168, 76, 0, 0.678);
+    border-width: 6px;
+    border-style: solid;
 }
