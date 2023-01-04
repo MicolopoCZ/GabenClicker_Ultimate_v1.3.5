@@ -1,14 +1,18 @@
 const player = document.getElementById("player");
-const attack = document.getElementById("attack");
-const heal = document.getElementById("heal");
-const enemy = document.getElementById("enemy");
 const playerHp = document.getElementById("playerHp");
 const playerAttack = document.getElementById("playerAttack");
+const attack = document.getElementById("attack");
+const kalasSFX = document.getElementById("fireSFX");
+
+
+const enemy = document.getElementById("enemy");
 const enemyHp = document.getElementById("enemyHp");
 const enemyAttack = document.getElementById("enemyAttack");
-const info = document.getElementById("info");
-const kalasSFX = document.getElementById("fireSFX");
 const pnineSFX = document.getElementById("enemyfireSFX");
+
+
+const info = document.getElementById("info");
+const lose = document.getElementById("lose");
 
 
 // DMG zbraní
@@ -24,7 +28,7 @@ const pDMGA = 17;
 attack.onmousedown = () => {
     let firing = hitChance[Math.floor(Math.random() * hitChance.length)];
 
-    if (firing == 1) {
+    if (firing == 1, playerHp.innerHTML >= 0) {
         if (enemyHp.innerHTML > 0 && playerHp.innerHTML > 0) {
             enemyHp.innerHTML = enemyHp.innerHTML - akDMGA;
             enemyHp.style.color = "red";
@@ -45,7 +49,7 @@ attack.onmousedown = () => {
         }
     }
     
-    if (firing == 0) {
+    if (firing == 0, playerHp.innerHTML >= 0) {
         player.style.display = "none";
         playerAttack.style.display = "flex"
         playerAttack.style.display = "flex";
@@ -56,10 +60,12 @@ attack.onmousedown = () => {
 };
 
 attack.onmouseup = () => {
+    if (playerHp.innerHTML >= 0) {
     player.style.display = "flex";
     playerAttack.style.display = "none";
     enemyHp.style.color = "white";
     enemyHp.style.fontSize = "50px";
+    }
 };
 
 
@@ -67,7 +73,8 @@ attack.onmouseup = () => {
 const enemyAttackInterval = setInterval(() => {
     if (playerHp.innerHTML <= 0) {
         clearInterval(enemyAttackInterval);
-        info.innerHTML = "Counter Terroristé vyhráli"
+        lose.innerHTML = "Cajti vyhráli";
+        lose.style.display = "block";
     }
     let firing = hitChance[Math.floor(Math.random() * hitChance.length)];
     if (firing == 1) {
