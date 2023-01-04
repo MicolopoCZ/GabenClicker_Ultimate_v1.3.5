@@ -51,6 +51,7 @@ body {
 }
 
 #attack {
+    display: block;
     position: absolute;
     top: 650px;
     left: 910px;
@@ -85,8 +86,7 @@ body {
     border-color: rgba(0, 0, 0, 0.671);
     background-color: rgba(168, 76, 0, 0.678);
     border-width: 6px;
-    border-style: solid;
-    left: 38%;
+    left: 37.5%;
 }
 
 #lose {
@@ -102,6 +102,22 @@ body {
     border-color: rgba(0, 0, 0, 0.671);
     background-color: rgba(0, 45, 168, 0.678);
     border-width: 6px;
+    left: 37.5%;
+}
+
+#reset {
+    display: none;
+    position: relative;
+    color: red;
     border-style: solid;
-    left: 38%;
+    border-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-width: 2px;
+    margin: 2em;
+    padding: 5px;
+    font-size: 40px;
+    text-align: center;
+    width: 250px;
+    left: 40%;
+    top: 250px;
 }

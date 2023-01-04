@@ -13,26 +13,51 @@ const pnineSFX = document.getElementById("enemyfireSFX");
 
 const info = document.getElementById("info");
 const lose = document.getElementById("lose");
+const reset = document.getElementById("reset");
+
 
 
 // DMG zbraní
 const akDMG = 36;
 const pDMG = 25;
 
+
 // DMG zbraní proti kevlaru
 const akDMGA = 27;
 const pDMGA = 17;
+
+
 
 
 // hráčova střelba
 attack.onmousedown = () => {
     let firing = hitChance[Math.floor(Math.random() * hitChance.length)];
 
-    if (firing == 1, playerHp.innerHTML >= 0) {
-        if (enemyHp.innerHTML > 0 && playerHp.innerHTML > 0) {
-            enemyHp.innerHTML = enemyHp.innerHTML - akDMGA;
-            enemyHp.style.color = "red";
-            enemyHp.style.fontSize = "50px";
+    if (playerHp.innerHTML >= 0) {
+        if (firing == 1) {
+           if (enemyHp.innerHTML > 0 && playerHp.innerHTML > 0) {
+                enemyHp.innerHTML = enemyHp.innerHTML - akDMGA;
+                enemyHp.style.color = "red";
+                enemyHp.style.fontSize = "50px";
+                player.style.display = "none";
+                playerAttack.style.display = "flex"
+                playerAttack.style.display = "flex";
+                kalasSFX.play();
+                kalasSFX.volume = 1.5;
+                kalasSFX.currentTime = 0,5;
+            }
+
+            if (enemyHp.innerHTML <= 0) {
+                clearInterval(enemyAttackInterval);
+                enemyHp.innerHTML = "0";
+                info.innerHTML = "Terroristé vyhráli";
+                info.style.display = "block";
+                attack.style.display = "none";
+                reset.style.display = "block";
+            }
+        }
+    
+        if (firing == 0, playerHp.innerHTML >= 0) {
             player.style.display = "none";
             playerAttack.style.display = "flex"
             playerAttack.style.display = "flex";
@@ -40,22 +65,6 @@ attack.onmousedown = () => {
             kalasSFX.volume = 1.5;
             kalasSFX.currentTime = 0,5;
         }
-
-        if (enemyHp.innerHTML <= 0) {
-            clearInterval(enemyAttackInterval);
-            enemyHp.innerHTML = "0";
-            info.innerHTML = "Terroristé vyhráli";
-            info.style.display = "block";
-        }
-    }
-    
-    if (firing == 0, playerHp.innerHTML >= 0) {
-        player.style.display = "none";
-        playerAttack.style.display = "flex"
-        playerAttack.style.display = "flex";
-        kalasSFX.play();
-        kalasSFX.volume = 1.5;
-        kalasSFX.currentTime = 0,5;
     }
 };
 
@@ -69,12 +78,18 @@ attack.onmouseup = () => {
 };
 
 
+
+
+
+
 // NPC střelba
 const enemyAttackInterval = setInterval(() => {
     if (playerHp.innerHTML <= 0) {
         clearInterval(enemyAttackInterval);
         lose.innerHTML = "Cajti vyhráli";
         lose.style.display = "block";
+        attack.style.display = "none";
+        reset.style.display = "block";
     }
     let firing = hitChance[Math.floor(Math.random() * hitChance.length)];
     if (firing == 1) {
