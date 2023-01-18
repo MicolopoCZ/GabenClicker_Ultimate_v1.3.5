@@ -46,15 +46,6 @@ attack.onmousedown = () => {
                 kalasSFX.volume = 1.5;
                 kalasSFX.currentTime = 0,5;
             }
-
-            if (enemyHp.innerHTML <= 0) {
-                clearInterval(enemyAttackInterval);
-                enemyHp.innerHTML = "0";
-                info.innerHTML = "Terroristé vyhráli";
-                info.style.display = "block";
-                attack.style.display = "none";
-                reset.style.display = "block";
-            }
         }
     
         if (firing == 0, playerHp.innerHTML >= 0) {
@@ -69,7 +60,7 @@ attack.onmousedown = () => {
 };
 
 attack.onmouseup = () => {
-    if (playerHp.innerHTML >= 0) {
+    if (playerHp.innerHTML > 0) {
     player.style.display = "flex";
     playerAttack.style.display = "none";
     enemyHp.style.color = "white";
@@ -86,26 +77,38 @@ attack.onmouseup = () => {
 const enemyAttackInterval = setInterval(() => {
     if (playerHp.innerHTML <= 0) {
         clearInterval(enemyAttackInterval);
+        playerHp.innerHTML = "0";
         lose.innerHTML = "Cajti vyhráli";
         lose.style.display = "block";
         attack.style.display = "none";
         reset.style.display = "block";
     }
     let firing = hitChance[Math.floor(Math.random() * hitChance.length)];
-    if (firing == 1) {
-        playerHp.innerHTML = playerHp.innerHTML - pDMGA;
-        enemy.style.display = "none";
-        enemyAttack.style.display = "flex";
-        pnineSFX.play();
-        pnineSFX.volume = 0.01;
-        pnineSFX.currentTime = 0;
+    if (enemyHp.innerHTML > 0) {
+        if (firing == 1) {
+            playerHp.innerHTML = playerHp.innerHTML - pDMGA;
+            enemy.style.display = "none";
+            enemyAttack.style.display = "flex";
+            pnineSFX.play();
+            pnineSFX.volume = 0.01;
+            pnineSFX.currentTime = 0;
+        }
+        if (firing == 0) {
+            enemy.style.display = "none";
+            enemyAttack.style.display = "flex";
+            pnineSFX.play();
+            pnineSFX.volume = 0.01;
+            pnineSFX.currentTime = 0;
+        }
     }
-    if (firing == 0) {
-        enemy.style.display = "none";
-        enemyAttack.style.display = "flex";
-        pnineSFX.play();
-        pnineSFX.volume = 0.01;
-        pnineSFX.currentTime = 0;
+// Kondice pro vítěství
+    if (enemyHp.innerHTML <= 0) {
+        clearInterval(enemyAttackInterval);
+        enemyHp.innerHTML = "0";
+        info.innerHTML = "Terroristé vyhráli";
+        info.style.display = "block";
+        attack.style.display = "none";
+        reset.style.display = "block";
     }
 }, 300);
 

@@ -9,7 +9,7 @@ a {
 
 body {
     background: url("../img/background1.jpg");
-    background-size: cover;
+    background-size: auto;
   }
   
 button {
